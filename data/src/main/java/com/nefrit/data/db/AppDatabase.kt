@@ -26,7 +26,7 @@ abstract class AppDatabase : RoomDatabase() {
                         override fun onCreate(db: SupportSQLiteDatabase) {
                             super.onCreate(db)
                             Executors.newSingleThreadExecutor().execute {
-                                //            instance!!.operationsDao().addPoints(DataEntity.populateData())
+                                instance!!.operationsDao().addPoints(DataEntity.populateData())
                             }
                         }
                     })
