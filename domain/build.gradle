@@ -1,0 +1,14 @@
+apply plugin: 'java-library'
+apply plugin: 'kotlin'
+
+dependencies {
+    api project(":model")
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation "io.reactivex.rxjava2:rxkotlin:$rootProject.rxKotlinVersion"
+    implementation "javax.inject:javax.inject:$rootProject.javaxInjectVersion"
+
+    testImplementation "junit:junit:$rootProject.junitVersion"
+    testImplementation "org.mockito:mockito-inline:$rootProject.mockitoVersion"
+    testImplementation project(':test-shared')
+}

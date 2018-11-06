@@ -1,54 +1,47 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion rootProject.compileSdkVersion
+
     defaultConfig {
-        applicationId "tel.charging.outletradar"
         minSdkVersion rootProject.minSdkVersion
         targetSdkVersion rootProject.targetSdkVersion
-        versionCode rootProject.versionCode
-        versionName rootProject.versionName
+
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
     }
+
     buildTypes {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
-    }
-    dataBinding {
-        enabled true
+        debug {
+            minifyEnabled false
+        }
     }
 }
 
 dependencies {
     implementation project(':domain')
-   // implementation project(':data')
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    // android stuff
-    implementation "com.android.support.constraint:constraint-layout:$rootProject.constraintVersion"
-    implementation "com.android.support:recyclerview-v7:$rootProject.supportVersion"
-    implementation "com.android.support:cardview-v7:$rootProject.supportVersion"
-    implementation "com.android.support:design:$rootProject.supportVersion"
-    implementation "com.android.support:customtabs:$rootProject.supportVersion"
+    // kotlin & rx
+    implementation "io.reactivex.rxjava2:rxkotlin:$rootProject.rxKotlinVersion"
 
-    // kotlin
-    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$rootProject.kotlinVersion"
+    // room
+    implementation "android.arch.persistence.room:runtime:$rootProject.architectureComponentVersion"
+    implementation "android.arch.persistence.room:rxjava2:$rootProject.architectureComponentVersion"
+    kapt "android.arch.persistence.room:compiler:$rootProject.architectureComponentVersion"
 
     // lifecycle
     implementation "android.arch.lifecycle:runtime:$rootProject.architectureComponentVersion"
     implementation "android.arch.lifecycle:extensions:$rootProject.architectureComponentVersion"
     kapt "android.arch.lifecycle:compiler:$rootProject.architectureComponentVersion"
 
-    // rx
-    implementation "io.reactivex.rxjava2:rxkotlin:$rootProject.rxKotlinVersion"
-    implementation "io.reactivex.rxjava2:rxandroid:$rootProject.rxandroidVersion"
-
-    // Dagger
+    // DI & dagger 2
     implementation "com.google.dagger:dagger-android:$rootProject.dagger"
     implementation "com.google.dagger:dagger-android-support:$rootProject.dagger"
     kapt "com.google.dagger:dagger-compiler:$rootProject.dagger"
@@ -57,6 +50,5 @@ dependencies {
     testImplementation "junit:junit:$rootProject.junitVersion"
     testImplementation "org.mockito:mockito-inline:$rootProject.mockitoVersion"
     testImplementation "android.arch.core:core-testing:$rootProject.architectureComponentVersion"
-
-    androidTestImplementation "com.android.support.test.espresso:espresso-core:$rootProject.espressoVersion"
+    testImplementation project(':test-shared')
 }
