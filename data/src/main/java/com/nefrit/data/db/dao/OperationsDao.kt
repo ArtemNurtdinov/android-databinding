@@ -5,6 +5,7 @@ import android.arch.persistence.room.Insert
 import android.arch.persistence.room.OnConflictStrategy
 import android.arch.persistence.room.Query
 import com.nefrit.data.db.model.OperationLocal
+import io.reactivex.Flowable
 
 @Dao
 abstract class OperationsDao {
@@ -14,4 +15,7 @@ abstract class OperationsDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     abstract fun addPoints(points: List<OperationLocal>)
+
+    @Query("SELECT * FROM operations")
+    abstract fun getAllOperations(): Flowable<List<OperationLocal>>
 }
