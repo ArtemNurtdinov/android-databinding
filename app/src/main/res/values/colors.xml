@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorPrimary">#4840bd</color>
+    <color name="colorPrimaryDark">#2732ab</color>
+
+    <color name="status_bar">#202124</color>
+    <color name="white">#fff</color>
+    <color name="grey">#9c9c9c</color>
+    <color name="default_distance_color">#999</color>
+    <color name="white_90">#e6ffffff</color>
+    <color name="highlight_light">#33ffffff</color> <!-- 20% white -->
+    <color name="scrim">#33000000</color> <!-- 20% black -->
+
 </resources>
