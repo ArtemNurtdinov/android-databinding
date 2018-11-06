@@ -1,5 +1,7 @@
 package com.nefrit.databinding.di
 
+import com.nefrit.data.di.RepoModule
+import com.nefrit.data.di.ViewModelModule
 import com.nefrit.databinding.App
 import dagger.Component
 import dagger.android.AndroidInjector
@@ -12,7 +14,8 @@ import javax.inject.Singleton
         AndroidSupportInjectionModule::class,
         AppModule::class,
         ActivityBindingModule::class,
-        ViewModelModule::class]
+        ViewModelModule::class,
+        RepoModule::class]
 )
 interface AppComponent : AndroidInjector<App> {
 

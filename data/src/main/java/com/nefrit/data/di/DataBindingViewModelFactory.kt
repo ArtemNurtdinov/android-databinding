@@ -1,4 +1,4 @@
-package com.nefrit.databinding.di
+package com.nefrit.data.di
 
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider

@@ -28,5 +28,7 @@ class OperationsActivity : DaggerAppCompatActivity() {
             viewModel = viewModelProvider(viewModelFactory)
             setLifecycleOwner(this@OperationsActivity)
         }
+
+
     }
 }

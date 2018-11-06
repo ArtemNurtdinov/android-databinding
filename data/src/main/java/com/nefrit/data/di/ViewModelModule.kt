@@ -1,6 +1,7 @@
-package com.nefrit.databinding.di
+package com.nefrit.data.di
 
 import android.arch.lifecycle.ViewModelProvider
+import com.nefrit.data.di.DataBindingViewModelFactory
 import dagger.Binds
 import dagger.Module
 
