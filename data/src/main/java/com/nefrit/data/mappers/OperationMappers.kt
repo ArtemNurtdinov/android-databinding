@@ -5,6 +5,6 @@ import com.nefrit.model.Operation
 
 fun mapOperationLocalToOperation(operation: OperationLocal): Operation {
     return with (operation) {
-        Operation(id, value, comment, date, categoryName, categoryIconRes)
+        Operation(id, value, comment, date, categoryName, categoryIconId)
     }
 }

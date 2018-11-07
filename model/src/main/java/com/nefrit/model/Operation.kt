@@ -8,5 +8,5 @@ data class Operation(
     val comment: String,
     val date: Long,
     val categoryName: String,
-    val categoryIconRes: Int
+    val categoryIconId: Int
 )

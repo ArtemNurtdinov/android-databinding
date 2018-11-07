@@ -12,6 +12,8 @@ import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentTransaction
 import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
+import java.text.SimpleDateFormat
+import java.util.*
 
 inline fun <reified VM : ViewModel> AppCompatActivity.viewModelProvider(
     provider: ViewModelProvider.Factory
