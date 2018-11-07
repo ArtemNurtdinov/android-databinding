@@ -12,7 +12,7 @@ import com.nefrit.model.Operation
 import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
 
-class OperationActivity: DaggerAppCompatActivity() {
+class OperationActivity : DaggerAppCompatActivity() {
 
     @Inject lateinit var viewModelFactory: ViewModelProvider.Factory
 
@@ -35,10 +35,11 @@ class OperationActivity: DaggerAppCompatActivity() {
 
         operationViewModel = viewModelProvider(viewModelFactory)
 
-        val binding = DataBindingUtil.setContentView<ActivityOperationBinding>(this, R.layout.activity_operation).apply {
-            viewModel = operationViewModel
-            setLifecycleOwner(this@OperationActivity)
-        }
+        val binding =
+            DataBindingUtil.setContentView<ActivityOperationBinding>(this, R.layout.activity_operation).apply {
+                viewModel = operationViewModel
+                setLifecycleOwner(this@OperationActivity)
+            }
     }
 
     override fun onStart() {

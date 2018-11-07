@@ -12,6 +12,7 @@ import com.nefrit.model.OperationId
 import io.reactivex.android.schedulers.AndroidSchedulers
 import javax.inject.Inject
 
+@Suppress("NestedLambdaShadowedImplicitParameter")
 @SuppressLint("CheckResult")
 class OperationViewModel @Inject constructor(
     private val interactor: OperationsInteractor
@@ -39,7 +40,7 @@ class OperationViewModel @Inject constructor(
             .subscribe({
                 loadOperationResult.value = it
             }, {
-
+                // TODO: handle error here
             })
     }
 
@@ -47,3 +48,6 @@ class OperationViewModel @Inject constructor(
         operationId.setValueIfNew(newOperationId)
     }
 }
+
+
+
