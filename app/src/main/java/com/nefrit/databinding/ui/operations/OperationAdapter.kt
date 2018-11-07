@@ -10,13 +10,14 @@ import com.nefrit.databinding.databinding.ListItemOperationBinding
 import com.nefrit.model.Operation
 
 class OperationAdapter(
-    private val lifecycleOwner: LifecycleOwner
+    private val lifecycleOwner: LifecycleOwner,
+    private val clickListener: OperationClickListener
 ) : ListAdapter<Operation, OperationViewHolder>(PointDiff) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OperationViewHolder {
         val binding =
             ListItemOperationBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        return OperationViewHolder(binding, lifecycleOwner)
+        return OperationViewHolder(binding, clickListener, lifecycleOwner)
     }
 
     override fun onBindViewHolder(holder: OperationViewHolder, position: Int) {
@@ -26,12 +27,13 @@ class OperationAdapter(
 
 class OperationViewHolder(
     private val binding: ListItemOperationBinding,
+    private val clickListener: OperationClickListener,
     private val lifecycleOwner: LifecycleOwner
 ) : RecyclerView.ViewHolder(binding.root) {
 
     fun bind(operation: Operation) {
         binding.operation = operation
-        //  binding.clickListener = clickListener
+        binding.clickListener = clickListener
         binding.setLifecycleOwner(lifecycleOwner)
         binding.executePendingBindings()
     }

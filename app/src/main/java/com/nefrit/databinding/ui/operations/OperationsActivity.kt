@@ -38,7 +38,7 @@ class OperationsActivity : DaggerAppCompatActivity() {
             setLifecycleOwner(this@OperationsActivity)
         }
 
-        adapter = OperationAdapter(this)
+        adapter = OperationAdapter(this, operationsViewModel)
 
         binding.operationsList.apply {
             adapter = this@OperationsActivity.adapter

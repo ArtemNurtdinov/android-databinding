@@ -11,6 +11,12 @@ class OperationsRepositoryImpl @Inject constructor(
     private val db: AppDatabase
 ) : OperationsRepository {
 
+    override fun getOperationById(id: Int): Observable<Operation> {
+        return db.operationsDao().getOperationById(id)
+            .toObservable()
+            .map { mapOperationLocalToOperation(it) }
+    }
+
     override fun getOperations(): Observable<List<Operation>> {
         return db.operationsDao().getAllOperations()
             .toObservable()

@@ -7,6 +7,7 @@ import android.arch.persistence.room.PrimaryKey
 data class OperationLocal(
     @PrimaryKey val id: Int,
     val value: Double,
+    val comment: String,
     val date: Long,
     val categoryName: String,
     val categoryIconRes: Int

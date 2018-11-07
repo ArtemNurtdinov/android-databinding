@@ -10,6 +10,11 @@ class OperationsInteractor @Inject constructor(
     private val operationsRepository: OperationsRepository
 ) {
 
+    fun getOperationById(id: Int): Observable<Operation> {
+        return operationsRepository.getOperationById(id)
+            .subscribeOn(Schedulers.io())
+    }
+
     fun getOperations(): Observable<List<Operation>> {
         return operationsRepository.getOperations()
             .subscribeOn(Schedulers.io())

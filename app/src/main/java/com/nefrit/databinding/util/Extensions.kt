@@ -1,6 +1,7 @@
 package com.nefrit.databinding.util
 
 import android.app.Activity
+import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider
 import android.arch.lifecycle.ViewModelProviders
@@ -54,3 +55,7 @@ fun Parcel.writeBoolean(value: Boolean) = writeInt(if (value) 1 else 0)
 
 /** Read a boolean from a Parcel (copied from Parcel, where this is @hidden). */
 fun Parcel.readBoolean() = readInt() != 0
+
+fun <T> MutableLiveData<T>.setValueIfNew(newValue: T) {
+    if (this.value != newValue) value = newValue
+}

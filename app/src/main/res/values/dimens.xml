@@ -2,4 +2,10 @@
 <resources>
     <item name="text_line_spacing" format="float" type="dimen">1.2</item>
 
+    <dimen name="margin_normal">16dp</dimen>
+    <dimen name="margin_small">8dp</dimen>
+    <dimen name="margin_large">32dp</dimen>
+    <dimen name="spacing_normal">8dp</dimen>
+    <dimen name="spacing_micro">4dp</dimen>
+
 </resources>

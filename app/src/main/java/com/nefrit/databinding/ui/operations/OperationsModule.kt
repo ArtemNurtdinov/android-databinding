@@ -12,5 +12,5 @@ abstract class OperationsModule {
     @Binds
     @IntoMap
     @ViewModelKey(OperationsViewModel::class)
-    internal abstract fun bindPointsViewModel(viewModel: OperationsViewModel): ViewModel
+    internal abstract fun bindOperationsViewModel(viewModel: OperationsViewModel): ViewModel
 }

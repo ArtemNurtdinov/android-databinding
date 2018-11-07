@@ -8,15 +8,17 @@
             name="operation"
             type="com.nefrit.model.Operation" />
 
-        <!--<variable
+        <variable
             name="clickListener"
-            type="tel.charging.outletradar.feature.pointcommon.PointClickListener" />-->
+            type="com.nefrit.databinding.ui.operations.OperationClickListener" />
 
     </data>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="?selectableItemBackground"
+        android:onClick="@{() -> clickListener.onClick(context, operation)}"
         android:orientation="horizontal"
         android:paddingLeft="16dp"
         android:paddingTop="12dp"
@@ -56,8 +58,8 @@
                     android:layout_weight="1"
                     android:ellipsize="end"
                     android:maxLines="1"
-                    tools:text="Траспорт"
-                    android:text="@{operation.categoryName}"/>
+                    android:text="@{operation.categoryName}"
+                    tools:text="Траспорт" />
 
                 <Space
                     android:layout_width="4dp"
@@ -68,8 +70,8 @@
                     style="@style/TextAppearance.OutletRadar.OperationValue"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    tools:text="-300 руб."
-                    android:text="@{String.valueOf(operation.value)}"/>
+                    android:text="@{String.valueOf(operation.value)}"
+                    tools:text="-300 руб." />
 
             </LinearLayout>
 
@@ -89,6 +91,7 @@
                     android:layout_weight="1"
                     android:ellipsize="end"
                     android:maxLines="5"
+                    android:text="@{operation.comment}"
                     tools:text="Без комментариев" />
 
                 <Space

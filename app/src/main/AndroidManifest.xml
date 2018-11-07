@@ -26,6 +26,8 @@
         </activity>
 
         <activity android:name=".ui.operations.OperationsActivity"/>
+
+        <activity android:name=".ui.operation.OperationActivity"/>
     </application>
 
 </manifest>

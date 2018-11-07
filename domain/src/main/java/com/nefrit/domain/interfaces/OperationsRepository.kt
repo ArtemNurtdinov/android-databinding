@@ -5,5 +5,7 @@ import io.reactivex.Observable
 
 interface OperationsRepository {
 
+    fun getOperationById(id: Int): Observable<Operation>
+
     fun getOperations(): Observable<List<Operation>>
 }

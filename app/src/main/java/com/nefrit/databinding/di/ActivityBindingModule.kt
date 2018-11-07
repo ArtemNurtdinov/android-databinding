@@ -3,6 +3,8 @@ package com.nefrit.databinding.di
 import com.nefrit.data.di.ActivityScoped
 import com.nefrit.databinding.ui.LauncherActivity
 import com.nefrit.databinding.ui.LauncherModule
+import com.nefrit.databinding.ui.operation.OperationActivity
+import com.nefrit.databinding.ui.operation.OperationModule
 import com.nefrit.databinding.ui.operations.OperationsActivity
 import com.nefrit.databinding.ui.operations.OperationsModule
 import dagger.Module
@@ -27,4 +29,8 @@ abstract class ActivityBindingModule {
     @ActivityScoped
     @ContributesAndroidInjector(modules = [OperationsModule::class])
     internal abstract fun operationsActivity(): OperationsActivity
+
+    @ActivityScoped
+    @ContributesAndroidInjector(modules = [OperationModule::class])
+    internal abstract fun operationActivity(): OperationActivity
 }

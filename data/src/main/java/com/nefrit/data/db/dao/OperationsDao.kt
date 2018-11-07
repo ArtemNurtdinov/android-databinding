@@ -16,6 +16,9 @@ abstract class OperationsDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     abstract fun addPoints(points: List<OperationLocal>)
 
+    @Query("SELECT * FROM operations WHERE id = :id")
+    abstract fun getOperationById(id: Int): Flowable<OperationLocal>
+
     @Query("SELECT * FROM operations")
     abstract fun getAllOperations(): Flowable<List<OperationLocal>>
 }
